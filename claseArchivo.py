@@ -84,6 +84,17 @@ class Archivo:
         self.f.seek(0)
         return contador
 
+    def cuentaPalabras(self):
+        text = self.f.read()
+        pal = text.split()
+        i = 0
+        while i < len(pal):
+            palabra=pal[i]
+            if palabra == 'Fin':
+                break
+            i+=1
+        return i
+
     def cuentaSignos(self):
         def signos(s):
             contador = 0
@@ -136,7 +147,7 @@ if __name__ == '__main__':
     print('el texto tiene:', arc.cuentaConsonantes(), 'consonantes')
     print('el texto tiene:', arc.cuentaSignos(), 'signos de puntuacion')
     print('el texto tiene:', arc.cuentaEspacios(), 'espacios')
-    print('el texto tiene:', arc.cuentaEspacios()+1, 'palabras')
+    print('el texto tiene:', arc.cuentaPalabras(), 'palabras')
     print('el texto tiene:', arc.cuentaLineas(), 'lineas')
     print('el texto tiene:', arc.cuentaMayusculas(), 'mayusculas')
     print('el texto tiene:', arc.cuentaMinusculas(), 'minusculas')
